@@ -2,7 +2,7 @@
 
 Fountain Reference Panel shows which Fountain scripts in your vault refer to the note that you have open. Write `[[>Ada]]` in a `.fountain` script, open the note Ada, and the panel lists that line with its scene heading and the text around it.
 
-The panel reads the saved `.fountain` files in the vault. The scan does not change your scripts or notes, and it sends nothing over the network. The Pro report writes a new note when you select Export.
+The scan does not change your scripts or notes, and it sends nothing over the network. The Pro report writes a new note when you select Export.
 
 <img src="https://raw.githubusercontent.com/theluckystrike/fountain-reference-panel/HEAD/docs/fountain-reference-panel.gif" alt="The panel follows the active note from Ada to Ben to the lighthouse note, then refreshes" width="720">
 
@@ -52,7 +52,7 @@ With Pro, the command "Export a reference report for selected notes" opens a lis
 
 For local installation, build the source, then copy `main.js`, `manifest.json` and `styles.css` into `<vault>/.obsidian/plugins/fountain-reference-panel/`. Open "Settings → Community plugins" and enable the plugin. You need Obsidian 1.13.4 or later. The desktop tests run on 1.13.4 and 1.14.4.
 
-To read or edit `.fountain` files in Obsidian, you also need a plugin that adds a view for them. Fountain Reference Panel does not add one.
+To read or edit `.fountain` files in Obsidian, you also need a plugin that adds a view for them.
 
 ## Usage
 
@@ -74,6 +74,8 @@ Stay in the [[>Lighthouse|tower]].
 
 ## Settings
 
+After a minor or major update, this plugin opens one What's new tab in the background. The tab and settings card suggest other NoteMods plugins and Zovo Chat and link to notemods.com for feedback ([privacy](https://notemods.com/privacy/)). The tab sends no data. Turn the tab off in Settings.
+
 <img src="https://raw.githubusercontent.com/theluckystrike/fountain-reference-panel/HEAD/docs/settings.png" alt="The settings tab with the Pro section and the project folder filter" width="720">
 
 | Setting | What it does |
@@ -92,11 +94,11 @@ No. This plugin puts Fountain references in its own panel. It does not change th
 
 ### Does it see changes that I have not saved?
 
-No. The scan reads the saved files. A Fountain editor can keep newer text in memory before it saves. Save the script, then select Refresh.
+No. The scan reads the saved files. A Fountain editor can keep newer text in memory before it saves.
 
 ### Does it scan on its own when a script changes?
 
-No. The first scan runs when you open the panel. After that, select Refresh. When you change the open note, the panel shows the rows for the new note from the last scan.
+No. The first scan runs when you open the panel. After that, select Refresh.
 
 ### Does it open the script at the line of the reference?
 
@@ -104,7 +106,7 @@ No. It asks Obsidian to open the file. The line number is in the row.
 
 ### What did you not test?
 
-We did not test the plugin on a phone or a tablet. The plugin uses no desktop-only API, but no device test has run. We did not test it with a Fountain editor plugin installed, so we do not know which view opens the script then. We did not test vaults with thousands of scripts, and we have no speed numbers. The end-to-end test in `test/e2e` runs in the desktop app.
+We did not test the plugin on a phone or a tablet. The plugin uses no desktop-only API, but no device test has run. We did not test it with a Fountain editor plugin installed, so we do not know which view opens the script then. We did not test vaults with thousands of scripts, and we have no speed numbers.
 
 ## Payment, account and network
 

@@ -6,6 +6,8 @@ import { ReportModal } from './report';
 import { inFolders, parseFolders, reportMarkdown, scanScripts, type ResolvedRef, type ScanResult, type ScriptInput } from './scan';
 import { DEFAULT_SETTINGS, FountainReferencePanelSettingTab, normalizeSettings, type FountainReferencePanelSettings } from './settings';
 import { ReferenceView, VIEW_TYPE } from './view';
+import { setupHello } from './hello/index';
+import WHATS_NEW from './whats-new.json';
 
 /** How often to ask the license state whether a check is due. It sends a request only when signed in and due (7 days). */
 const PRO_TICK_MS = 6 * 60 * 60 * 1000;
@@ -33,6 +35,8 @@ export default class FountainReferencePanelPlugin extends Plugin {
 	private settingTab: FountainReferencePanelSettingTab | null = null;
 
 	async onload(): Promise<void> {
+		// First: "What's new" reads its state before the settings load (packages/hello). It does not wait.
+		setupHello(this, WHATS_NEW);
 		await this.loadSettings();
 		// No request here: a request needs a GitHub sign in first (Settings, Pro, Sign in with GitHub).
 		const pro = createGitHubSponsors(this.app, this.manifest.id, SPONSORS, this);
