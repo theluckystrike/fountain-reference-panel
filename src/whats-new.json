@@ -1,9 +1,9 @@
 {
 	"id": "fountain-reference-panel",
 	"name": "Fountain Reference Panel",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"changes": [
-		"New Send feedback command. It opens a page where you can report a problem or suggest an idea."
+		"The Pro notice for the reference report now has a Sponsor on GitHub button."
 	],
 	"tip": "Write [[>Ada]] in a Fountain script to list that reference in the panel for the note Ada.",
 	"thanks": "Hi, I am Michael, a solo developer in Poland. Fountain Reference Panel is one of over 100 small plugins that I make. Thank you for using it with your scripts.",

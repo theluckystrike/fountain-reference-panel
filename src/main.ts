@@ -1,7 +1,7 @@
 import { FileView, Notice, Plugin, normalizePath, type TFile, type WorkspaceLeaf } from 'obsidian';
 import type { SponsorsManager } from './license/index';
 import { createGitHubSponsors } from './license/github-obsidian';
-import { SPONSORS, bindPro, isPro, onProChange, resetPro } from './pro';
+import { SPONSORS, bindPro, isPro, onProChange, resetPro, proNotice } from './pro';
 import { ReportModal } from './report';
 import { inFolders, parseFolders, reportMarkdown, scanScripts, type ResolvedRef, type ScanResult, type ScriptInput } from './scan';
 import { DEFAULT_SETTINGS, FountainReferencePanelSettingTab, normalizeSettings, type FountainReferencePanelSettings } from './settings';
@@ -162,7 +162,7 @@ export default class FountainReferencePanelPlugin extends Plugin {
 
 	async openReport(): Promise<void> {
 		if (!isPro()) {
-			new Notice('The reference report is a pro feature. Sponsor on GitHub, then sign in from the plugin settings.');
+			proNotice('The reference report is a pro feature.');
 			return;
 		}
 		if (this.scan === null) await this.refresh();
